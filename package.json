@@ -11,7 +11,8 @@
     "clean": "rimraf packages/automne-vue/dist",
     "lint": "pnpm --filter automne-vue lint",
     "test": "nr --filter automne-vue test",
-    "example": "nr --filter example dev"
+    "example": "nr --filter example dev",
+    "example:build": "nr --filter example build"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.2",

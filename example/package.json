@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
-    "build-only": "vite build",
+    "build-only": "vite build && cp _redirects dist/_redirects",
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {

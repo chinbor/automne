@@ -21,6 +21,8 @@ function genImportString(componentName: string) {
 const automneVuePkgRoot = path.join(__dirname, '..', 'packages', 'automne-vue')
 
 const automneVueComponentsDir = path.join(automneVuePkgRoot, 'src', 'components')
+
+// NOTE: make sure "packages/automne-vue/src/components" has vue file
 const componentsPath = globbySync(['**/*.vue'], { cwd: automneVueComponentsDir, absolute: true })
 const componentNames = componentsPath.map(c => path.parse(c).name)
 

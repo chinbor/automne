@@ -3,7 +3,7 @@ import { URL, fileURLToPath } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
-// @ts-expect-error: it's right
+// @ts-expect-error: vscode throws error, but run successful.
 import VueMacros from 'unplugin-vue-macros/vite'
 import { defineConfig } from 'vitest/config'
 import UnoCSS from 'unocss/vite'
