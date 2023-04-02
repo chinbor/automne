@@ -36,6 +36,5 @@ defineSlots<{
         stroke="#02bcfe"
       />
     </svg>
-    <slot />
   </div>
 </template>
