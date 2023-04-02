@@ -1,6 +1,6 @@
 declare module 'vue' {
   export interface GlobalComponents {
-    AWaterflow: typeof import('automne-vue')['AWaterflow']
+    ASvgLoading: typeof import('automne-vue')['ASvgLoading']
   }
 }
 

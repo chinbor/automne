@@ -16,6 +16,7 @@ const externals = [
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
+    // target: 'esnext',
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'automne-vue',
@@ -37,6 +38,15 @@ export default defineConfig({
       },
     },
   },
+  // https://cn.vitejs.dev/config/shared-options.html#esbuild
+  // https://esbuild.github.io/api/#keep-names
+  // NOTE:
+  // vite默认打包使用的esbuild，打包后会自动压缩标识符，我们需要保留原有名字避免生成 标识符h 与 h函数冲突，
+  // 当然后续你的文件如果显示使用了vue的h函数，那么可以关闭这里的配置
+  // esbuild: {
+  //   minifyIdentifiers: false,
+  //   keepNames: true,
+  // },
   plugins: [
     VueMacros({
       plugins: {
