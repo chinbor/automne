@@ -8,11 +8,11 @@
     "dev": "pnpm --filter automne-vue dev",
     "build": "tsx ./scripts/build.ts",
     "up": "taze -r -w",
-    "clean": "rimraf packages/automne-vue/dist",
+    "clean": "rimraf packages/automne-vue/dist && rimraf example/dist",
     "lint": "pnpm --filter automne-vue lint",
     "test": "nr --filter automne-vue test",
     "example": "nr --filter example dev",
-    "example:build": "nr --filter example build"
+    "example:build": "nr --filter automne-vue build && nr --filter example build"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.2",
