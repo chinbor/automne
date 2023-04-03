@@ -1,6 +1,5 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <ASvgLoading title="瀑布流组件" description="我是一个基于unocss、vue3实现的瀑布流组件" />
+  <ASvgLoading duration="3" :width="50" :height="50" out-side-color="red" in-side-color="green">
+    <span text-black text-16px>加载中</span>
+  </ASvgLoading>
 </template>
