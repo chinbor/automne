@@ -6,7 +6,9 @@ defineProps(flyBoxProps)
 
 const width = ref(0)
 const height = ref(0)
-const maskID = `fly-box-mask-${uuidv4()}`
+const flyMaskID = `fly-box-mask-${uuidv4()}`
+const flyPathID = `fly-box-path-${uuidv4()}`
+const flyLightID = `fly-box-light-${uuidv4()}`
 const flyBoxRef = ref<null | HTMLDivElement>(null)
 const path = computed(() => {
   return `M0 0 L${width.value} 0 L${width.value} ${height.value} L0 ${height.value} Z`
@@ -27,12 +29,12 @@ defineOptions({
     <svg class="absolute top-0 left-0 w100% h100%" :width="width" :height="height">
       <defs>
         <path
-          id="fly-box-path"
+          :id="flyPathID"
           :d="path"
           fill="none"
         />
         <radialGradient
-          id="fly-box-light"
+          :id="flyLightID"
           cx="50%"
           cy="50%"
           fy="50%"
@@ -42,8 +44,8 @@ defineOptions({
           <stop offset="0%" stop-color="#fff" stop-opacity="1" />
           <stop offset="100%" stop-color="#fff" stop-opacity="0" />
         </radialGradient>
-        <mask :id="maskID">
-          <circle :r="thumbLength" cx="0" cy="0" fill="url(#fly-box-light)">
+        <mask :id="flyMaskID">
+          <circle :r="thumbLength" cx="0" cy="0" :fill="`url(#${flyLightID})`">
             <animateMotion
               :dur="duration"
               :path="path"
@@ -54,15 +56,15 @@ defineOptions({
         </mask>
       </defs>
       <use
-        href="#fly-box-path"
+        :href="`#${flyPathID}`"
         :stroke-width="trackWidth"
         :stroke="trackColor"
       />
       <use
-        href="#fly-box-path"
+        :href="`#${flyPathID}`"
         :stroke-width="thumbWidth"
         :stroke="thumbColor"
-        :mask="`url(#${maskID})`"
+        :mask="`url(#${flyMaskID})`"
       />
     </svg>
     <div class="a-flyBox-content w100% h100%">
