@@ -3,14 +3,15 @@ import { URL, fileURLToPath } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
-// @ts-expect-error: vscode throws error, but run successful.
-import VueMacros from 'unplugin-vue-macros/vite'
 import { defineConfig } from 'vitest/config'
 import UnoCSS from 'unocss/vite'
+// @ts-expect-error: something wrong, but I need it
+import DefineOptions from 'unplugin-vue-define-options/vite'
 
 const externals = [
   'vue',
   'defu',
+  'uuid',
 ]
 
 // https://vitejs.dev/config/
@@ -34,6 +35,7 @@ export default defineConfig({
         globals: {
           vue: 'Vue',
           defu: 'Defu',
+          uuid: 'Uuid',
         },
       },
     },
@@ -41,23 +43,19 @@ export default defineConfig({
   // https://cn.vitejs.dev/config/shared-options.html#esbuild
   // https://esbuild.github.io/api/#keep-names
   // BUG(暂时不知道怎么解决啊):
-  // vite默认打包使用的esbuild，打包后会自动压缩标识符，我们需要保留原有名字避免生成 标识符h 与 h函数冲突，
-  // 当然后续你的文件如果显示使用了vue的h函数，那么可以关闭这里的配置
+  // vite默认打包使用的esbuild，打包后会自动压缩标识符，我们需要保留原有名字避免生成 标识符h 与 h函数冲突
   esbuild: {
     minifyIdentifiers: false,
     keepNames: true,
   },
   plugins: [
-    VueMacros({
-      plugins: {
-        vue: vue(),
-      },
-    }),
+    vue(),
     vueJsx(),
     UnoCSS(),
     AutoImport({
       imports: ['vue', '@vueuse/core'],
     }),
+    DefineOptions(),
   ],
   resolve: {
     alias: {

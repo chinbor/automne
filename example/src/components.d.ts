@@ -9,9 +9,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AFlyBox: typeof import('automne-vue')['AFlyBox']
     ASvgLoading: typeof import('automne-vue')['ASvgLoading']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TheFlyBox: typeof import('./components/TheFlyBox.vue')['default']
     TheSvgLoading: typeof import('./components/TheSvgLoading.vue')['default']
   }
 }

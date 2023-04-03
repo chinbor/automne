@@ -1,6 +1,6 @@
 import { createTransition } from '@/composables/createTransition'
 
-export const transitions = [
+const transitions = [
   'fade',
   'scale',
   'slide-y',

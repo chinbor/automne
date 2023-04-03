@@ -9,7 +9,7 @@ defineOptions({
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center">
+  <div class="inline-flex flex-col items-center">
     <svg :width="width" :height="height" viewBox="0 0 50 50">
       <circle
         cx="25"
@@ -60,7 +60,7 @@ defineOptions({
         />
       </circle>
     </svg>
-    <div class="a-loading-content">
+    <div class="a-loading-content mt-10px">
       <slot />
     </div>
   </div>
