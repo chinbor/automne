@@ -42,12 +42,12 @@ export default defineConfig({
   },
   // https://cn.vitejs.dev/config/shared-options.html#esbuild
   // https://esbuild.github.io/api/#keep-names
-  // BUG(暂时不知道怎么解决啊):
+  // BUG(暂时不知道怎么解决啊): 当代码越写越多，这个问题莫名奇妙的被解决了
   // vite默认打包使用的esbuild，打包后会自动压缩标识符，我们需要保留原有名字避免生成 标识符h 与 h函数冲突
-  esbuild: {
-    minifyIdentifiers: false,
-    keepNames: true,
-  },
+  // esbuild: {
+  //   minifyIdentifiers: false,
+  //   keepNames: true,
+  // },
   plugins: [
     vue(),
     vueJsx(),
