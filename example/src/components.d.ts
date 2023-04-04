@@ -11,11 +11,15 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AFlyBox: typeof import('automne-vue')['AFlyBox']
     AFullContainer: typeof import('automne-vue')['AFullContainer']
+    AList: typeof import('automne-vue')['AList']
     ASvgLoading: typeof import('automne-vue')['ASvgLoading']
+    AWaterfallsFlow: typeof import('automne-vue')['AWaterfallsFlow']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheFlyBox: typeof import('./components/TheFlyBox.vue')['default']
     TheFullContainer: typeof import('./components/TheFullContainer.vue')['default']
+    TheNoPreLoadWaterfallsFlow: typeof import('./components/TheNoPreLoadWaterfallsFlow.vue')['default']
+    ThePreLoadWaterfallsFlow: typeof import('./components/ThePreLoadWaterfallsFlow.vue')['default']
     TheSvgLoading: typeof import('./components/TheSvgLoading.vue')['default']
   }
 }

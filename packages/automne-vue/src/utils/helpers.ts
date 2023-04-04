@@ -100,3 +100,52 @@ export function renameObjKey<T extends Record<string, any>, K extends keyof T, R
     [replaceWith]: value,
   } as Omit<T, K> & Record<R, T[K]>
 }
+
+export function getImgs(eles: Element[], classSelector: string) {
+  const imgs: Array<HTMLImageElement> = []
+
+  return eles.reduce((prev, cur) => {
+    const imgs = Array.from<HTMLImageElement>(cur.getElementsByClassName(classSelector) as unknown as HTMLImageElement[])
+
+    prev.push(...imgs)
+
+    return prev
+  }, imgs)
+}
+
+export function getAllImgLinks(imgs: HTMLImageElement[]) {
+  return imgs.map((img) => {
+    return img.src
+  })
+}
+
+interface PromiseType {
+  img: HTMLImageElement
+  index: number
+}
+
+export function onImgsLoaded(imgLinks: string[]) {
+  const promises: Array<Promise<PromiseType>> = []
+
+  imgLinks.reduce((prev, cur, index) => {
+    const promise = new Promise<PromiseType>((resolve, reject) => {
+      const img = new Image()
+      img.src = cur
+      img.onload = () => {
+        resolve({
+          img,
+          index,
+        })
+      }
+      img.onerror = () => {
+        reject(new Error('img load error'))
+      }
+    })
+
+    prev.push(promise)
+
+    return prev
+  }, promises)
+
+  return Promise.all(promises)
+}

@@ -7,6 +7,8 @@ import { defineConfig } from 'vitest/config'
 import UnoCSS from 'unocss/vite'
 // @ts-expect-error: something wrong, but I need it
 import DefineOptions from 'unplugin-vue-define-options/vite'
+// @ts-expect-error: something wrong, but I need it
+import VueMacros from 'unplugin-vue-macros/vite'
 
 const externals = [
   'vue',
@@ -49,8 +51,12 @@ export default defineConfig({
   //   keepNames: true,
   // },
   plugins: [
-    vue(),
-    vueJsx(),
+    VueMacros({
+      plugins: {
+        vue: vue(),
+        vueJsx: vueJsx(),
+      },
+    }),
     UnoCSS(),
     AutoImport({
       imports: ['vue', '@vueuse/core'],
