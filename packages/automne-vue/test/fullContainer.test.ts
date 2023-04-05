@@ -14,6 +14,7 @@ describe('AFullContainer', () => {
       },
     })
 
+    // 因为 mount 需要使用 document.createElement，所以不能放在 beforeEach中
     vi.stubGlobal('document', { documentElement: { clientWidth: 100, clientHeight: 200 } })
 
     const evt = new CustomEvent('resize')
