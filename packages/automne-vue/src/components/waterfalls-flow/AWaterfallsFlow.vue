@@ -154,6 +154,8 @@ watch(() => props.data, async (newVal) => {
 })
 
 function reset() {
+  columnWidth.value = 0
+
   // HACK: to repaint
   let timer: NodeJS.Timeout | null = setTimeout(() => {
     clearTimeout(timer!)
@@ -169,10 +171,6 @@ function reset() {
 
 // 监听列数的改变（处理移动端，pc端切换适配问题）
 watch(() => props.column, async () => {
-  // if (props.preLoad)
-  // 需要预加载的当切换时需要移除dom重新加载图片并动态计算其大小
-  columnWidth.value = 0
-
   reset()
 })
 
