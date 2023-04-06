@@ -7,23 +7,23 @@ describe('AFlyBox', () => {
   test('AFlyBox render slot', () => {
     const wrapper = mount(AFlyBox, {
       slots: {
-        default: () => 'content',
+        default: () => 'content 123',
       },
     })
 
-    expect(wrapper.find('.a-flyBox-content').text()).toBe('content')
+    expect(wrapper.find('.a-flyBox-content').text()).toBe('content 123')
   })
 
   test('ID unique', () => {
     const wrapper1 = mount(AFlyBox, {
       slots: {
-        default: () => 'content',
+        default: () => 'content 123',
       },
     })
 
     const wrapper2 = mount(AFlyBox, {
       slots: {
-        default: () => 'content',
+        default: () => 'content 123',
       },
     })
 
