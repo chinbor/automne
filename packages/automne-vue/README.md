@@ -6,6 +6,8 @@ Implement some more creative components by vue3 and unocss.
 
 ### Full Import
 
+First, install automne-vue
+
 ```sh
 pnpm i automne-vue -S
 ```
