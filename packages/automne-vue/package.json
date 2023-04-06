@@ -1,7 +1,7 @@
 {
   "name": "automne-vue",
   "type": "module",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.1-beta.1",
   "description": "Implement some more creative components by vue3 and unocss.",
   "author": "chinbor <https://github.com/chinbor>",
   "license": "MIT",
