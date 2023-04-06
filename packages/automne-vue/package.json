@@ -1,8 +1,7 @@
 {
   "name": "automne-vue",
   "type": "module",
-  "version": "0.0.1",
-  "private": "false",
+  "version": "0.0.1-beta.0",
   "description": "Implement some more creative components by vue3 and unocss.",
   "author": "chinbor <https://github.com/chinbor>",
   "license": "MIT",
@@ -70,5 +69,8 @@
     "vite-plugin-dts": "^2.1.0",
     "vitest": "^0.29.8",
     "vue-tsc": "^1.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
