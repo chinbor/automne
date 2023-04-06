@@ -12,7 +12,8 @@
     "lint": "pnpm --filter automne-vue lint",
     "test": "nr --filter automne-vue test",
     "example": "nr --filter example dev",
-    "example:build": "nr --filter automne-vue build && nr --filter example build"
+    "example:build": "nr --filter automne-vue build && nr --filter example build",
+    "release": "bumpp package.json packages/**/package.json"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.2",
