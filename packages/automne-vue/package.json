@@ -2,10 +2,11 @@
   "name": "automne-vue",
   "type": "module",
   "version": "0.0.1-beta.0",
+  "private": "false",
   "description": "Implement some more creative components by vue3 and unocss.",
   "author": "chinbor <https://github.com/chinbor>",
   "license": "MIT",
-  "homepage": "https://github.com/chinbor/automne#readme",
+  "homepage": "https://automne.netlify.app",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chinbor/automne.git",
@@ -44,9 +45,6 @@
     "preview": "vite preview",
     "lint": "eslint . --fix",
     "test": "vitest"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "dependencies": {
     "defu": "^6.1.2",

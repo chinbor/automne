@@ -10,7 +10,7 @@ execSync('pnpm --filter automne-vue build', { stdio: 'inherit', cwd: repoRoot })
 // copy README.md file to dist dir for npm publish
 copyFileSync(
   path.join(repoRoot, 'README.md'),
-  path.join(automneVuePkgRoot, 'dist', 'README.md'),
+  path.join(automneVuePkgRoot, 'README.md'),
 )
 
 consola.success('Build complete!')
