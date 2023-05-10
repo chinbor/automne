@@ -5,9 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vitest/config'
 import UnoCSS from 'unocss/vite'
-// @ts-expect-error: something wrong, but I need it
 import DefineOptions from 'unplugin-vue-define-options/vite'
-// @ts-expect-error: something wrong, but I need it
 import VueMacros from 'unplugin-vue-macros/vite'
 
 const externals = [
