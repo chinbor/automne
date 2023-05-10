@@ -92,7 +92,12 @@ let timer: NodeJS.Timeout | null = setTimeout(() => {
   <div class="max-w1280px mx-auto mt100px p10px box-border">
     <AList v-model="loading" :is-finished="isFinished" @onload="onload">
       <AWaterfallsFlow :data="data" node-key="id" :column="isPC ? 5 : 2" :pre-load="true" :img-selector="imgSelector">
-        <template #default="{ columnWidth, index, item }">
+        <template
+          #default="{
+            //@ts-ignore: https://github.com/vuejs/language-tools/pull/3116
+            columnWidth, index, item,
+          }"
+        >
           <div class="text-white rounded overflow-hidden" :style="{ backgroundColor: randomRGB() }">
             <!-- NOTE: 不能使用v-lazy指令（内部将img.src置为''），因为preload模式动态计算高度依赖于图片的加载完成！！ -->
             <img :class="imgSelector" :src="item.url" :alt="item.name">

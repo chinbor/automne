@@ -174,14 +174,14 @@ watch(() => props.column, async () => {
   reset()
 })
 
+// NOTE: https://github.com/vuejs/language-tools/pull/3116
 defineSlots<{
   // slot name
-  default: {
-    // scoped slot
+  default: (_: {
     item: Record<string, any>
     columnWidth: number
     index: number
-  }
+  }) => any
 }>()
 </script>
 

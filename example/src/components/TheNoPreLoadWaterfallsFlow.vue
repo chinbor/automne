@@ -106,7 +106,12 @@ let timer: NodeJS.Timeout | null = setTimeout(() => {
   <div class="max-w1280px mx-auto mt100px p10px box-border">
     <AList v-model="loading" :is-finished="isFinished" @onload="onload">
       <AWaterfallsFlow :data="data" :column="isPC ? 5 : 2" :pre-load="false" :img-selector="imgSelector">
-        <template #default="{ columnWidth, index, item }">
+        <template
+          #default="{
+            //@ts-ignore: https://github.com/vuejs/language-tools/pull/3116
+            columnWidth, index, item,
+          }"
+        >
           <div class="text-white rounded overflow-hidden bg-zinc" :style="{ backgroundColor: randomRGB() }">
             <img v-lazy :class="imgSelector" class="w-full" :src="item.url" :alt="item.name" :style="{ height: `${(columnWidth * item.height) / item.width}px` }">
             <span block text-white>index: {{ index }}</span>
